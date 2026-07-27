@@ -11,6 +11,7 @@ Personal macOS configuration for Zsh, tmux, and Neovim. The repository is organi
 | `nvim` | `~/.config/nvim` | LazyVim configuration with Copilot, Telescope, JSON, and TOML extras |
 | `btop` | `~/.config/btop` | Catppuccin Mocha theme (Frappe, Macchiato, and Latte variants included) |
 | `oh-my-posh` | `~/.config/oh-my-posh` | `shana.omp.json` prompt theme used by `zsh/.zshrc`, plus bundled `atomic`, `catppuccin`, and `M365Princess` themes |
+| `yazi` | `~/.config/yazi` | Catppuccin Mocha theme, keymap, and Catppuccin theme variants (Frappe, Latte, Macchiato, Mocha, all accent colors) |
 
 ## Prerequisites
 
@@ -32,13 +33,13 @@ Clone this repository, change into it, and preview the links before creating the
 ```zsh
 git clone <your-repository-url> ~/dotfiles
 cd ~/dotfiles
-stow -n -v -t "$HOME" zsh tmux nvim btop oh-my-posh
+stow -n -v -t "$HOME" zsh tmux nvim btop oh-my-posh yazi
 ```
 
 If the dry run looks correct, create the symlinks:
 
 ```zsh
-stow -v -t "$HOME" zsh tmux nvim btop oh-my-posh
+stow -v -t "$HOME" zsh tmux nvim btop oh-my-posh yazi
 ```
 
 Stow reports a conflict when a destination already exists. Review and back up any existing configuration before resolving the conflict; do not overwrite it blindly.
@@ -54,4 +55,5 @@ Stow reports a conflict when a destination already exists. Review and back up an
 - The LM Studio CLI path in `zsh/.zshrc` is specific to its original machine. Update or remove it on another Mac.
 - `tmux` uses `pbcopy` for copy-mode selection on macOS and `xclip` on other systems.
 - `btop` defaults to the Catppuccin Mocha theme; switch themes by pointing `color_theme` in `btop/.config/btop/btop.conf` at one of the other bundled `.theme` files.
-- To remove links created by Stow, run `stow -D -t "$HOME" zsh tmux nvim btop oh-my-posh` from this repository.
+- `yazi` ships with Catppuccin Mocha colors in `theme.toml`; swap in one of the other flavor/accent combinations under `yazi/.config/yazi/themes/catppuccin/`.
+- To remove links created by Stow, run `stow -D -t "$HOME" zsh tmux nvim btop oh-my-posh yazi` from this repository.
