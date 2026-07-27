@@ -10,6 +10,7 @@ Personal macOS configuration for Zsh, tmux, and Neovim. The repository is organi
 | `tmux` | `~/.config/tmux` | `C-Space` prefix, vim-style panes, macOS clipboard support, Catppuccin Mocha theme, and session persistence |
 | `nvim` | `~/.config/nvim` | LazyVim configuration with Copilot, Telescope, JSON, and TOML extras |
 | `btop` | `~/.config/btop` | Catppuccin Mocha theme (Frappe, Macchiato, and Latte variants included) |
+| `oh-my-posh` | `~/.config/oh-my-posh` | `shana.omp.json` prompt theme used by `zsh/.zshrc`, plus bundled `atomic`, `catppuccin`, and `M365Princess` themes |
 
 ## Prerequisites
 
@@ -22,7 +23,7 @@ brew install stow git neovim tmux nvm eza fzf zoxide yazi lazygit oh-my-posh \
 
 Use a Nerd Font in your terminal emulator so icons in `eza`, tmux, and Neovim render correctly.
 
-The Zsh configuration expects an Oh My Posh theme at `~/.config/oh-my-posh/shana.omp.json`. Add that theme separately, change the path in `zsh/.zshrc`, or remove the Oh My Posh initialization if it is not needed.
+The Zsh configuration expects an Oh My Posh theme at `~/.config/oh-my-posh/shana.omp.json`; the `oh-my-posh` package links it (and a few alternate themes) into place. Change the path in `zsh/.zshrc` to use a different bundled theme, or remove the Oh My Posh initialization if it is not needed.
 
 ## Installation
 
@@ -31,13 +32,13 @@ Clone this repository, change into it, and preview the links before creating the
 ```zsh
 git clone <your-repository-url> ~/dotfiles
 cd ~/dotfiles
-stow -n -v -t "$HOME" zsh tmux nvim btop
+stow -n -v -t "$HOME" zsh tmux nvim btop oh-my-posh
 ```
 
 If the dry run looks correct, create the symlinks:
 
 ```zsh
-stow -v -t "$HOME" zsh tmux nvim btop
+stow -v -t "$HOME" zsh tmux nvim btop oh-my-posh
 ```
 
 Stow reports a conflict when a destination already exists. Review and back up any existing configuration before resolving the conflict; do not overwrite it blindly.
@@ -53,4 +54,4 @@ Stow reports a conflict when a destination already exists. Review and back up an
 - The LM Studio CLI path in `zsh/.zshrc` is specific to its original machine. Update or remove it on another Mac.
 - `tmux` uses `pbcopy` for copy-mode selection on macOS and `xclip` on other systems.
 - `btop` defaults to the Catppuccin Mocha theme; switch themes by pointing `color_theme` in `btop/.config/btop/btop.conf` at one of the other bundled `.theme` files.
-- To remove links created by Stow, run `stow -D -t "$HOME" zsh tmux nvim btop` from this repository.
+- To remove links created by Stow, run `stow -D -t "$HOME" zsh tmux nvim btop oh-my-posh` from this repository.
