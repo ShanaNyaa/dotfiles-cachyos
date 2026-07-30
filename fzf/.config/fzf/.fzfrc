@@ -1,6 +1,37 @@
---color=spinner:#F5E0DC,hl:#F38BA8
---color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC
---color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8
---color=selected-bg:#45475A
---color=border:#6C7086,label:#CDD6F4
---popup bottom
+# --- Colors (Catppuccin Mocha) ---
+# Text
+--color=fg:#CDD6F4      # unselected line text
+--color=fg+:#CDD6F4     # currently highlighted line text
+
+# Matched substring highlight
+--color=hl:#F38BA8      # match highlight, unselected line
+--color=hl+:#F38BA8     # match highlight, highlighted line
+
+# Interactive elements
+--color=pointer:#F5E0DC # pointer next to the highlighted line
+--color=marker:#B4BEFE  # marker next to multi-selected lines
+--color=prompt:#CBA6F7  # query prompt ("> ")
+--color=spinner:#F5E0DC # loading spinner while scanning
+--color=info:#CBA6F7    # match-count/stats line
+--color=header:#F38BA8  # text passed via --header
+
+# Selection & border
+--color=selected-bg:#45475A # background of multi-selected lines
+--color=border:#6C7086       # window/preview border
+--color=label:#CDD6F4        # border-label text
+
+# --- Layout ---
+--popup bottom # render as a popup anchored to the bottom of the terminal
+
+# --- Preview scrolling (vim-like) ---
+# ctrl-y / ctrl-e -> line      up / down (Vim: y / e)
+# ctrl-b / ctrl-f -> page      up / down (Vim: ctrl-b / ctrl-f)
+# ctrl-u / ctrl-d -> half page up / down (Vim: ctrl-u / ctrl-d)
+# (shift-up / shift-down are already bound to preview-up / preview-down by default;
+#  fzf has no horizontal preview-scroll action, so there's no left/right equivalent)
+--bind 'ctrl-y:preview-up'
+--bind 'ctrl-e:preview-down'
+--bind 'ctrl-b:preview-page-up'
+--bind 'ctrl-f:preview-page-down'
+--bind 'ctrl-u:preview-half-page-up'
+--bind 'ctrl-d:preview-half-page-down'

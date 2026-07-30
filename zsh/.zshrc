@@ -57,7 +57,7 @@ fi
 
 # --- 8. fzf ---
 if [[ -f "$XDG_CONFIG_HOME/fzf/.fzfrc" ]]; then
-  export FZF_DEFAULT_OPTS="$(cat "$XDG_CONFIG_HOME/fzf/.fzfrc")"
+  export FZF_DEFAULT_OPTS="$(sed -e '/^[[:space:]]*#/d' -e 's/[[:space:]]#.*$//' -e '/^[[:space:]]*$/d' "$XDG_CONFIG_HOME/fzf/.fzfrc")"
 fi
 
 # fzf preview
