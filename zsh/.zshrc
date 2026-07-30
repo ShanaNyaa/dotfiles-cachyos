@@ -59,6 +59,10 @@ fi
 if [[ -f "$XDG_CONFIG_HOME/fzf/.fzfrc" ]]; then
   export FZF_DEFAULT_OPTS="$(cat "$XDG_CONFIG_HOME/fzf/.fzfrc")"
 fi
+
+# fzf preview
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --icons=always --tree --color=always {} | head -200'"
 type fzf &>/dev/null && source <(fzf --zsh)
 
 # --- 9. Zoxide ---

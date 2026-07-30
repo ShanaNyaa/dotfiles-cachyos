@@ -22,9 +22,10 @@ export PATH="$PATH:/Users/shana/.lmstudio/bin"
 # --- GPG ---
 export GPG_TTY=$(tty)
 
-# --- Editor / man pager ---
+# --- Editor and pager ---
 export EDITOR="nvim"
-# export MANPAGER='nvim +Man!'
+export VISUAL="nvim"
+export MANPAGER="nvim +Man!"
 
 # --- Zsh history (XDG_STATE_HOME, since history is log-like state) ---
 export HISTFILE="$XDG_STATE_HOME/zsh/history"
