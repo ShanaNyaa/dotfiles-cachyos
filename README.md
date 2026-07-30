@@ -13,7 +13,7 @@ Personal macOS configuration for Zsh, tmux, Neovim, Ghostty, and assorted CLI to
 | `oh-my-posh` | `~/.config/oh-my-posh` | `shana.omp.json` prompt theme used by `zsh/.zshrc`, plus bundled `atomic`, `catppuccin`, and `M365Princess` themes |
 | `yazi` | `~/.config/yazi` | Catppuccin Mocha theme, keymap, and Catppuccin theme variants (Frappe, Latte, Macchiato, Mocha, all accent colors) |
 | `bat` | `~/.config/bat` | Catppuccin Mocha syntax theme, used as the preview command for `fzf`'s Ctrl+T binding |
-| `fzf` | `~/.config/fzf` | Catppuccin Mocha color options loaded via `FZF_DEFAULT_OPTS` in `zsh/.zshrc` |
+| `fzf` | `~/.config/fzf` | Catppuccin Mocha color options and vim-style preview-scroll bindings, loaded via `FZF_DEFAULT_OPTS` in `zsh/.zshrc` |
 | `lazygit` | `~/.config/lazygit` | Lazygit configuration with Catppuccin theme variants (Frappe, Latte, Macchiato, Mocha, all accent colors), invoked via the `lg` shell function in `zsh/.zshrc` (`lg` also `cd`s to the last directory browsed on exit) |
 | `ghostty` | `~/.config/ghostty` | Catppuccin theme (Latte in light mode, Mocha in dark mode), background blur, and cursor shaders (submodule) |
 
@@ -64,6 +64,7 @@ Stow reports a conflict when a destination already exists. Review and back up an
 - `btop` defaults to the Catppuccin Mocha theme; switch themes by pointing `color_theme` in `btop/.config/btop/btop.conf` at one of the other bundled `.theme` files.
 - `yazi` ships with Catppuccin Mocha colors in `theme.toml`; swap in one of the other flavor/accent combinations under `yazi/.config/yazi/themes/catppuccin/`. `overall.bg` is commented out so Yazi uses the terminal's own background instead of a hardcoded color.
 - `bat` defaults to the `Catppuccin Mocha` theme in `bat/.config/bat/config`; run `bat --list-themes` to see other options, and `bat cache --build` after changing themes if you add custom ones.
+- `fzf/.config/fzf/.fzfrc` supports `#` comments and blank lines for readability; `zsh/.zshrc` strips them with `sed` before exporting `FZF_DEFAULT_OPTS`, since the file is concatenated as a raw options string rather than sourced as a script.
 - `ghostty` switches theme automatically between Catppuccin Latte (light) and Catppuccin Mocha (dark); the active cursor shader is set via the uncommented `custom-shader` line in `ghostty/.config/ghostty/config.ghostty`.
 - The Ghostty cursor shaders are pulled in as a Git submodule from [sahaj-b/ghostty-cursor-shaders](https://github.com/sahaj-b/ghostty-cursor-shaders); run `git submodule update --remote` to update them.
 - To remove links created by Stow, run `stow -D -t "$HOME" zsh tmux nvim btop oh-my-posh yazi fzf lazygit ghostty bat` from this repository.
