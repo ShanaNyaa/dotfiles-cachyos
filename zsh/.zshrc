@@ -32,20 +32,23 @@ alias ta="tmux new -A -s"
 alias tl="tmux ls"
 alias cls="clear"
 
-# --- 6. Shell behavior ---
+# --- 6. Keybindings ---
+# Alt (word-wise editing)
+bindkey '^[[1;3C' forward-word        # Alt+Right
+bindkey '^[[1;3D' backward-word       # Alt+Left
+bindkey '^[^?'    backward-kill-word  # Alt+Backspace (DEL variant)
+bindkey '^H'      backward-kill-word  # Alt+Backspace (BS variant, some terminals)
+
+# Cmd (line-wise editing, mapped by terminal to Ctrl+A/E)
+bindkey '^A' beginning-of-line        # Cmd+Left
+bindkey '^E' end-of-line              # Cmd+Right
+
+# --- 7. Shell behavior ---
 #NOTE: Suggest corrections for mystyped commands
 setopt CORRECT
 setopt CORRECT_ALL
 
-# Bind sequences for ALT+Arrow keys
-bindkey '^[[1;3C' forward-word
-bindkey '^[[1;3D' backward-word
-
-# Bind sequences for ALT+Backspace (DEL and BS variants)
-bindkey '^[^?' backward-kill-word   # Alt+Backspace (DEL variant)
-bindkey '^H'   backward-kill-word   # Alt+Backspace (BS variant, some terminals)
-
-# --- 7. Themes & plugins (must load after compinit) ---
+# --- 8. Themes & plugins (must load after compinit) ---
 if type brew &>/dev/null; then
   [ -f "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && \
     source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
@@ -55,7 +58,7 @@ if [ "$TERM_PROGRAM" != "Apple_Terminal" ] && type oh-my-posh &>/dev/null; then
   eval "$(oh-my-posh init zsh --config "$XDG_CONFIG_HOME/oh-my-posh/shana.omp.json")"
 fi
 
-# --- 8. fzf ---
+# --- 9. fzf ---
 if [[ -f "$XDG_CONFIG_HOME/fzf/.fzfrc" ]]; then
   export FZF_DEFAULT_OPTS="$(sed -e '/^[[:space:]]*#/d' -e 's/[[:space:]]#.*$//' -e '/^[[:space:]]*$/d' "$XDG_CONFIG_HOME/fzf/.fzfrc")"
 fi
@@ -65,10 +68,10 @@ export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --icons=always --tree --color=always {} | head -200'"
 type fzf &>/dev/null && source <(fzf --zsh)
 
-# --- 9. Zoxide ---
+# --- 10. Zoxide ---
 type zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
-# --- 10. Yazi (cd to last dir on exit) ---
+# --- 11. Yazi (cd to last dir on exit) ---
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	command yazi "$@" --cwd-file="$tmp"
@@ -77,7 +80,7 @@ function y() {
 	command rm -f -- "$tmp"
 }
 
-# --- 11. Lazygit (cd to last dir on exit) ---
+# --- 12. Lazygit (cd to last dir on exit) ---
 function lg() {
   export LAZYGIT_NEW_DIR_FILE="$XDG_STATE_HOME/lazygit/newdir"
   mkdir -p "$(dirname "$LAZYGIT_NEW_DIR_FILE")"
@@ -88,7 +91,7 @@ function lg() {
   fi
 }
 
-# --- 12. Fastfetch on boot (optional) ---
+# --- 13. Fastfetch on boot (optional) ---
 # if [[ -o interactive ]]; then
 #   fastfetch
 # fi
