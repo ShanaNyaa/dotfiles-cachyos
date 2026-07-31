@@ -1,6 +1,6 @@
 # Dotfiles
 
-Personal macOS configuration for Zsh, tmux, Neovim, Ghostty, and assorted CLI tools. The repository is organized as [GNU Stow](https://www.gnu.org/software/stow/) packages, so each top-level directory mirrors its destination under `$HOME`. The `ghostty` package includes a Git submodule for cursor shaders, so clone with `--recurse-submodules` (or run `git submodule update --init` after cloning).
+Personal macOS configuration for Zsh, tmux, Neovim, Ghostty, and assorted CLI tools. The repository is organized as [GNU Stow](https://www.gnu.org/software/stow/) packages, so each top-level directory mirrors its destination under `$HOME`. The `ghostty` and `delta` packages each include a Git submodule (cursor shaders and the Catppuccin theme, respectively), so clone with `--recurse-submodules` (or run `git submodule update --init` after cloning).
 
 ## Included packages
 
@@ -14,8 +14,9 @@ Personal macOS configuration for Zsh, tmux, Neovim, Ghostty, and assorted CLI to
 | `yazi` | `~/.config/yazi` | Catppuccin Mocha theme, keymap, and Catppuccin theme variants (Frappe, Latte, Macchiato, Mocha, all accent colors) |
 | `bat` | `~/.config/bat` | Catppuccin Mocha syntax theme, used as the preview command for `fzf`'s Ctrl+T binding |
 | `fzf` | `~/.config/fzf` | Catppuccin Mocha color options and vim-style preview-scroll bindings, loaded via `FZF_DEFAULT_OPTS` in `zsh/.zshrc` |
-| `lazygit` | `~/.config/lazygit` | Lazygit configuration with Catppuccin theme variants (Frappe, Latte, Macchiato, Mocha, all accent colors), invoked via the `lg` shell function in `zsh/.zshrc` (`lg` also `cd`s to the last directory browsed on exit) |
+| `lazygit` | `~/.config/lazygit` | Lazygit configuration with Catppuccin theme variants (Frappe, Latte, Macchiato, Mocha, all accent colors), invoked via the `lg` shell function in `zsh/.zshrc`; its diff pager is `delta`, themed with the Catppuccin `delta` submodule (`lg` also `cd`s to the last directory browsed on exit) |
 | `ghostty` | `~/.config/ghostty` | Catppuccin theme (Latte in light mode, Mocha in dark mode), background blur, and cursor shaders (submodule) |
+| `delta` | `~/.config/delta` | Catppuccin theme for `git-delta` (submodule), used only as Lazygit's diff pager via `--config`/`--features` — plain `git diff` is untouched |
 
 ## Prerequisites
 
@@ -23,7 +24,7 @@ Install Homebrew first, then install the command-line tools used by these config
 
 ```zsh
 brew install stow git neovim tmux nvm eza fzf zoxide yazi lazygit oh-my-posh \
-	zsh-autosuggestions zsh-syntax-highlighting btop bat
+	zsh-autosuggestions zsh-syntax-highlighting btop bat git-delta
 ```
 
 Install [Ghostty](https://ghostty.org) separately (it is a GUI app, not a Homebrew formula).
@@ -39,13 +40,13 @@ Clone this repository (with submodules), change into it, and preview the links b
 ```zsh
 git clone --recurse-submodules <your-repository-url> ~/dotfiles
 cd ~/dotfiles
-stow -n -v -t "$HOME" zsh tmux nvim btop oh-my-posh yazi fzf lazygit ghostty bat
+stow -n -v -t "$HOME" zsh tmux nvim btop oh-my-posh yazi fzf lazygit ghostty bat delta
 ```
 
 If the dry run looks correct, create the symlinks:
 
 ```zsh
-stow -v -t "$HOME" zsh tmux nvim btop oh-my-posh yazi fzf lazygit ghostty bat
+stow -v -t "$HOME" zsh tmux nvim btop oh-my-posh yazi fzf lazygit ghostty bat delta
 ```
 
 Stow reports a conflict when a destination already exists. Review and back up any existing configuration before resolving the conflict; do not overwrite it blindly.
@@ -67,4 +68,5 @@ Stow reports a conflict when a destination already exists. Review and back up an
 - `fzf/.config/fzf/.fzfrc` supports `#` comments and blank lines for readability; `zsh/.zshrc` strips them with `sed` before exporting `FZF_DEFAULT_OPTS`, since the file is concatenated as a raw options string rather than sourced as a script.
 - `ghostty` switches theme automatically between Catppuccin Latte (light) and Catppuccin Mocha (dark); the active cursor shader is set via the uncommented `custom-shader` line in `ghostty/.config/ghostty/config.ghostty`.
 - The Ghostty cursor shaders are pulled in as a Git submodule from [sahaj-b/ghostty-cursor-shaders](https://github.com/sahaj-b/ghostty-cursor-shaders); run `git submodule update --remote` to update them.
-- To remove links created by Stow, run `stow -D -t "$HOME" zsh tmux nvim btop oh-my-posh yazi fzf lazygit ghostty bat` from this repository.
+- The Catppuccin `delta` theme is pulled in as a Git submodule from [catppuccin/delta](https://github.com/catppuccin/delta); run `git submodule update --remote` to update it. Lazygit's `pagers` entry in `lazygit/.config/lazygit/config.yml` points `delta` at this submodule's `catppuccin.gitconfig` via `--config` and activates a flavor via `--features` (e.g. `catppuccin-mocha`), so the theme only applies inside Lazygit's diff view and never touches `~/.gitconfig` or plain `git diff` output.
+- To remove links created by Stow, run `stow -D -t "$HOME" zsh tmux nvim btop oh-my-posh yazi fzf lazygit ghostty bat delta` from this repository.

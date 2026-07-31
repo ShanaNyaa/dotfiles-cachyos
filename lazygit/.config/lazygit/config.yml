@@ -27,3 +27,11 @@ theme:
 
 authorColors:
   '*': '#b4befe'
+
+git:
+  pagers:
+    - pager: delta --config ~/.config/delta/catppuccin/catppuccin.gitconfig --features=catppuccin-mocha --dark --paging=never
+    - pager: ydiff -p cat -s --wrap --width={{columnWidth}}
+      colorArg: never
+    - externalDiffCommand: difft --color=always
+    - {} # default, no pager used

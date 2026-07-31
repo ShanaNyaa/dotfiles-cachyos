@@ -1,3 +1,7 @@
 [submodule "ghostty/.config/ghostty/shaders"]
 	path = ghostty/.config/ghostty/shaders
 	url = https://github.com/sahaj-b/ghostty-cursor-shaders.git
+
+[submodule "delta/.config/delta/catppuccin"]
+	path = delta/.config/delta/catppuccin
+	url = https://github.com/catppuccin/delta.git
