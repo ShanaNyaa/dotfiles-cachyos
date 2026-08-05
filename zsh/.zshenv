@@ -7,17 +7,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-# --- Homebrew ---
-if type brew &>/dev/null; then
-  export HOMEBREW_PREFIX="$(brew --prefix)"
-  FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
-fi
-
-# --- NVM ---
-export NVM_DIR="$XDG_DATA_HOME/nvm"
-
-# --- LM Studio ---
-export PATH="$PATH:/Users/shana/.lmstudio/bin"
+# --- PATH ---
+export PATH="$PATH:$HOME/.local/bin"
 
 # --- GPG ---
 export GPG_TTY=$(tty)

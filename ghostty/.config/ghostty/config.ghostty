@@ -2,7 +2,7 @@
   # Ghostty Terminal - Complete Configuration
   # ============================================
   # File: ~/.config/ghostty/config
-  # Reload: Cmd+Shift+, (macOS)
+  # Reload: ctrl+shift+,
   # View options: ghostty +show-config --default --docs
 
   # --- Typography ---
@@ -28,11 +28,10 @@
 
   # --- Window and Appearance ---
   background-opacity = 0.9
-  background-blur-radius = 20
-  macos-titlebar-style = transparent
+  # Blur is handled by the compositor on Wayland (Hyprland blur rules)
+  window-decoration = none
   window-padding-x = 10
   window-padding-y = 8
-  window-save-state = always
   window-theme = auto
 
   # --- Cursor ---
@@ -46,11 +45,8 @@
 
   # --- Keyboard ---
   # Force Alt + Arrow keys to send distinct xterm codes instead of ^[b and ^[f
-  keybind = option+left=text:\x1b[1;3D
-  keybind = option+right=text:\x1b[1;3C
-
-  # Make Ghostty send Alt as modifier
-  # macos-option-as-alt = true
+  keybind = alt+left=text:\x1b[1;3D
+  keybind = alt+right=text:\x1b[1;3C
 
   # --- Quick Terminal (Quake-style dropdown) ---
   # Activate with the global keybind configured below
@@ -70,37 +66,37 @@
 
   # --- Keybindings ---
   # Tabs
-  keybind = cmd+t=new_tab
-  keybind = cmd+shift+left=previous_tab
-  keybind = cmd+shift+right=next_tab
-  keybind = cmd+w=close_surface
+  keybind = ctrl+t=new_tab
+  keybind = ctrl+shift+left=previous_tab
+  keybind = ctrl+shift+right=next_tab
+  keybind = ctrl+w=close_surface
 
   # Splits
-  keybind = cmd+d=new_split:right
-  keybind = cmd+shift+d=new_split:down
-  # keybind = cmd+alt+left=goto_split:left
-  keybind = cmd+alt+h=goto_split:left
-  # keybind = cmd+alt+right=goto_split:right
-  keybind = cmd+alt+l=goto_split:right
-  # keybind = cmd+alt+up=goto_split:top
-  keybind = cmd+alt+k=goto_split:top
-  # keybind = cmd+alt+down=goto_split:bottom
-  keybind = cmd+alt+j=goto_split:bottom
+  keybind = ctrl+d=new_split:right
+  keybind = ctrl+shift+d=new_split:down
+  # keybind = ctrl+alt+left=goto_split:left
+  keybind = ctrl+alt+h=goto_split:left
+  # keybind = ctrl+alt+right=goto_split:right
+  keybind = ctrl+alt+l=goto_split:right
+  # keybind = ctrl+alt+up=goto_split:top
+  keybind = ctrl+alt+k=goto_split:top
+  # keybind = ctrl+alt+down=goto_split:bottom
+  keybind = ctrl+alt+j=goto_split:bottom
 
   # Font size
-  keybind = cmd+plus=increase_font_size:1
-  keybind = cmd+minus=decrease_font_size:1
-  keybind = cmd+zero=reset_font_size
+  keybind = ctrl+plus=increase_font_size:1
+  keybind = ctrl+minus=decrease_font_size:1
+  keybind = ctrl+zero=reset_font_size
 
   # Quick terminal global hotkey
   #keybind = global:ctrl+grave_accent=toggle_quick_terminal
 
   # Splits management
-  keybind = cmd+shift+e=equalize_splits
-  keybind = cmd+shift+f=toggle_split_zoom
+  keybind = ctrl+shift+e=equalize_splits
+  keybind = ctrl+shift+f=toggle_split_zoom
 
   # Reload config
-  keybind = cmd+shift+comma=reload_config
+  keybind = ctrl+shift+comma=reload_config
 
   # --- Performance ---
   # Generous scrollback (25MB)

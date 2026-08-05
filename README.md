@@ -1,13 +1,13 @@
 # Dotfiles
 
-Personal macOS configuration for Zsh, tmux, Neovim, Ghostty, and assorted CLI tools. The repository is organized as [GNU Stow](https://www.gnu.org/software/stow/) packages, so each top-level directory mirrors its destination under `$HOME`. The `ghostty` and `delta` packages each include a Git submodule (cursor shaders and the Catppuccin theme, respectively), so clone with `--recurse-submodules` (or run `git submodule update --init` after cloning).
+Personal Linux (CachyOS/Arch, Hyprland) configuration for Zsh, tmux, Neovim, Ghostty, and assorted CLI tools. The repository is organized as [GNU Stow](https://www.gnu.org/software/stow/) packages, so each top-level directory mirrors its destination under `$HOME`. The `ghostty` and `delta` packages each include a Git submodule (cursor shaders and the Catppuccin theme, respectively), so clone with `--recurse-submodules` (or run `git submodule update --init` after cloning).
 
 ## Included packages
 
 | Package | Destination | Highlights |
 | --- | --- | --- |
-| `zsh` | `~/.zshrc`, `~/.zshenv` | XDG env vars, Homebrew/NVM setup, `nvim` as `EDITOR`/`VISUAL`/`MANPAGER`, `fzf` (with `bat`/`eza`-powered Ctrl+T and Alt+C previews), `zoxide`, `eza`, Yazi, Lazygit, Oh My Posh, and Zsh completion/syntax plugins |
-| `tmux` | `~/.config/tmux` | `C-Space` prefix, vim-style panes, macOS clipboard support, Catppuccin Mocha theme, and session persistence |
+| `zsh` | `~/.zshrc`, `~/.zshenv` | XDG env vars, `nvim` as `EDITOR`/`VISUAL`/`MANPAGER`, `fzf` (with `bat`/`eza`-powered Ctrl+T and Alt+C previews), `zoxide`, `eza`, Yazi, Lazygit, Oh My Posh, and Zsh completion/syntax plugins (sourced from `/usr/share/zsh/plugins`) |
+| `tmux` | `~/.config/tmux` | `C-Space` prefix, vim-style panes, Wayland clipboard support (`wl-copy`), Catppuccin Mocha theme, and session persistence |
 | `nvim` | `~/.config/nvim` | LazyVim configuration with Copilot, Telescope, Ghostty config syntax highlighting, JSON, and TOML extras |
 | `btop` | `~/.config/btop` | Catppuccin Mocha theme (Frappe, Macchiato, and Latte variants included) |
 | `oh-my-posh` | `~/.config/oh-my-posh` | `shana.omp.json` prompt theme used by `zsh/.zshrc`, plus bundled `atomic`, `catppuccin`, and `M365Princess` themes |
@@ -20,14 +20,12 @@ Personal macOS configuration for Zsh, tmux, Neovim, Ghostty, and assorted CLI to
 
 ## Prerequisites
 
-Install Homebrew first, then install the command-line tools used by these configurations:
+Install the command-line tools used by these configurations:
 
 ```zsh
-brew install stow git neovim tmux nvm eza fzf zoxide yazi lazygit oh-my-posh \
-	zsh-autosuggestions zsh-syntax-highlighting btop bat git-delta
+sudo pacman -S --needed stow git neovim tmux eza fzf zoxide yazi lazygit oh-my-posh \
+	zsh-autosuggestions zsh-syntax-highlighting btop bat git-delta ghostty wl-clipboard
 ```
-
-Install [Ghostty](https://ghostty.org) separately (it is a GUI app, not a Homebrew formula).
 
 Use a Nerd Font in your terminal emulator so icons in `eza`, tmux, Neovim, and Ghostty render correctly.
 
@@ -38,7 +36,7 @@ The Zsh configuration expects an Oh My Posh theme at `~/.config/oh-my-posh/shana
 Clone this repository (with submodules), change into it, and preview the links before creating them:
 
 ```zsh
-git clone --recurse-submodules <your-repository-url> ~/dotfiles
+git clone --recurse-submodules https://github.com/shananyaa/dotfiles-cachyos.git ~/dotfiles
 cd ~/dotfiles
 stow -n -v -t "$HOME" zsh tmux nvim btop oh-my-posh yazi fzf lazygit ghostty bat delta
 ```
@@ -56,12 +54,11 @@ Stow reports a conflict when a destination already exists. Review and back up an
 - Start a new Zsh session after linking `~/.zshrc` and `~/.zshenv`.
 - Start tmux with `tmux`; its bundled TPM and theme files are linked with the tmux package.
 - Open Neovim with `nvim`; `lazy.nvim` bootstraps itself and installs the configured plugins on first launch.
-- Open Ghostty; it picks up `~/.config/ghostty/config.ghostty` automatically, and reloads with `Cmd+Shift+,`.
+- Open Ghostty; it picks up `~/.config/ghostty/config.ghostty` automatically, and reloads with `Ctrl+Shift+,`.
 
 ## Customization notes
 
-- The LM Studio CLI path in `zsh/.zshenv` is specific to its original machine. Update or remove it on another Mac.
-- `tmux` uses `pbcopy` for copy-mode selection on macOS and `xclip` on other systems.
+- `tmux` uses `wl-copy` for copy-mode selection (Wayland).
 - `btop` defaults to the Catppuccin Mocha theme; switch themes by pointing `color_theme` in `btop/.config/btop/btop.conf` at one of the other bundled `.theme` files.
 - `yazi` ships with Catppuccin Mocha colors in `theme.toml`; swap in one of the other flavor/accent combinations under `yazi/.config/yazi/themes/catppuccin/`. `overall.bg` is commented out so Yazi uses the terminal's own background instead of a hardcoded color.
 - `bat` defaults to the `Catppuccin Mocha` theme in `bat/.config/bat/config`; run `bat --list-themes` to see other options, and `bat cache --build` after changing themes if you add custom ones.
