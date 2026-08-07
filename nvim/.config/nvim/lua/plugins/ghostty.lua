@@ -2,7 +2,7 @@
 -- No additional dependencies are required.
 
 return {
-  -- "ghostty",
-  -- dir = "/Applications/Ghostty.app/Contents/Resources/vim/vimfiles/",
-  -- lazy = false,
+  "ghostty",
+  dir = "/usr/share/nvim/site",
+  lazy = false,
 }
