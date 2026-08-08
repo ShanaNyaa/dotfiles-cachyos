@@ -1,6 +1,7 @@
 -- Hyprland default apps
 
 TERMINAL = "ghostty"
+TERMINAL_CLASS = "com.mitchellh.ghostty"
 FILE_MANAGER = "dolphin"
 BROWSER = "zen-browser"
 BROWSER_CLASS = "zen" -- window class, check with: hyprctl clients | grep class
