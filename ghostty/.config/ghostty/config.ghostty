@@ -66,14 +66,14 @@
 
   # --- Keybindings ---
   # Tabs
-  keybind = ctrl+t=new_tab
+  keybind = ctrl+shift+t=new_tab
   keybind = ctrl+shift+left=previous_tab
   keybind = ctrl+shift+right=next_tab
   keybind = ctrl+w=close_surface
 
   # Splits
-  keybind = ctrl+d=new_split:right
-  keybind = ctrl+shift+d=new_split:down
+  keybind = alt+d=new_split:right
+  keybind = alt+shift+d=new_split:down
   # keybind = ctrl+alt+left=goto_split:left
   keybind = ctrl+alt+h=goto_split:left
   # keybind = ctrl+alt+right=goto_split:right
@@ -97,6 +97,12 @@
 
   # Reload config
   keybind = ctrl+shift+comma=reload_config
+
+  # Open tmux session on initial startup
+  initial-command = tmux new -A -s Personal
+
+  # No confirmation when ghostty is closed
+  confirm-close-surface = false
 
   # --- Performance ---
   # Generous scrollback (25MB)
