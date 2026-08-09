@@ -25,8 +25,7 @@ hl.window_rule({
 	sync_fullscreen = true,
 })
 hl.window_rule({ match = { class = gamingApps }, workspace = gamingWorkspace })
-hl.window_rule({ match = { class = "^(steam)$", title = "^(Friends List)$" }, float = true })
-hl.window_rule({ match = { class = "^(steam)$", title = "^(Steam Settings)$" }, float = true })
+hl.window_rule({ match = { class = "^(steam)$", title = "^(Friends List|Steam Settings)$" }, float = true })
 hl.window_rule({
 	match = { class = "^(steam)$", title = "^(Launching\\.{3})$" },
 	float = true,
