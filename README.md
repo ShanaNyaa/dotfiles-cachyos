@@ -24,7 +24,7 @@ Install the command-line tools used by these configurations:
 
 ```zsh
 sudo pacman -S --needed stow git neovim tmux eza fzf zoxide yazi lazygit oh-my-posh \
-	zsh-autosuggestions zsh-syntax-highlighting btop bat git-delta ghostty wl-clipboard
+	zsh-autosuggestions zsh-syntax-highlighting btop bat git-delta ghostty wl-clipboard nvm
 ```
 
 Use a Nerd Font in your terminal emulator so icons in `eza`, tmux, Neovim, and Ghostty render correctly.
@@ -66,4 +66,5 @@ Stow reports a conflict when a destination already exists. Review and back up an
 - `ghostty` switches theme automatically between Catppuccin Latte (light) and Catppuccin Mocha (dark); the active cursor shader is set via the uncommented `custom-shader` line in `ghostty/.config/ghostty/config.ghostty`.
 - The Ghostty cursor shaders are pulled in as a Git submodule from [sahaj-b/ghostty-cursor-shaders](https://github.com/sahaj-b/ghostty-cursor-shaders); run `git submodule update --remote` to update them.
 - The Catppuccin `delta` theme is pulled in as a Git submodule from [catppuccin/delta](https://github.com/catppuccin/delta); run `git submodule update --remote` to update it. Lazygit's `pagers` entry in `lazygit/.config/lazygit/config.yml` points `delta` at this submodule's `catppuccin.gitconfig` via `--config` and activates a flavor via `--features` (e.g. `catppuccin-mocha`), so the theme only applies inside Lazygit's diff view and never touches `~/.gitconfig` or plain `git diff` output.
+- `zsh/.zshrc` sources `/usr/share/nvm/init-nvm.sh` (the `nvm` package) to enable Node Version Manager; remove that line if you manage Node another way (e.g. `fnm`, `volta`, or a system Node package).
 - To remove links created by Stow, run `stow -D -t "$HOME" zsh tmux nvim btop oh-my-posh yazi fzf lazygit ghostty bat delta` from this repository.

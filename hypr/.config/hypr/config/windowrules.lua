@@ -106,6 +106,11 @@ hl.window_rule({
 	float = true,
 	size = { "monitor_w*0.70", "monitor_h*0.70" },
 })
+hl.window_rule({
+	match = { class = "^(.*qbittorrent.*)$" },
+	float = true,
+	size = { "max(monitor_w, monitor_h)*0.85", "min(monitor_w, monitor_h)*0.70" },
+})
 
 -- Opacity Overrides
 local terminals = "^(kitty|ghostty|[Kk]onsole|Alacritty|gnome-terminal|xfce[0-9]?-terminal)$"

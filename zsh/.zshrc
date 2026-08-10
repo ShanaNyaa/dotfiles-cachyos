@@ -9,7 +9,10 @@ mkdir -p "$(dirname "$HISTFILE")"
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 autoload -Uz compinit && compinit
 
-# --- 3. History options ---
+# --- 3. NVM ---
+source /usr/share/nvm/init-nvm.sh
+
+# --- 4. History options ---
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_SPACE
@@ -18,7 +21,7 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS
 
-# --- 4. Aliases ---
+# --- 5. Aliases ---
 alias ls="eza --icons=always --color=always"
 alias ll="eza -lh --icons=always --color=always"
 alias la="eza -la --icons=always --color=always"
@@ -26,7 +29,7 @@ alias ta="tmux new -A -s"
 alias tl="tmux ls"
 alias cls="clear"
 
-# --- 5. Keybindings ---
+# --- 6. Keybindings ---
 # Ctrl (word-wise editing)
 bindkey '^[[1;5C' forward-word        # Ctrl+Right
 bindkey '^[[1;5D' backward-word       # Ctrl+Left
@@ -41,19 +44,19 @@ bindkey '^[^?'    backward-kill-line  # Alt+Backspace (kill line before cursor)
 bindkey '^A' beginning-of-line        # Ctrl+A
 bindkey '^E' end-of-line              # Ctrl+E
 
-# --- 6. Shell behavior ---
+# --- 7. Shell behavior ---
 #NOTE: Suggest corrections for mystyped commands
 setopt CORRECT
 setopt CORRECT_ALL
 
-# --- 7. Themes & plugins (must load after compinit) ---
+# --- 8. Themes & plugins (must load after compinit) ---
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 if type oh-my-posh &>/dev/null; then
   eval "$(oh-my-posh init zsh --config "$XDG_CONFIG_HOME/oh-my-posh/shana.omp.json")"
 fi
 
-# --- 8. fzf ---
+# --- 9. fzf ---
 if [[ -f "$XDG_CONFIG_HOME/fzf/.fzfrc" ]]; then
   export FZF_DEFAULT_OPTS="$(sed -e '/^[[:space:]]*#/d' -e 's/[[:space:]]#.*$//' -e '/^[[:space:]]*$/d' "$XDG_CONFIG_HOME/fzf/.fzfrc")"
 fi
@@ -63,10 +66,10 @@ export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --icons=always --tree --color=always {} | head -200'"
 type fzf &>/dev/null && source <(fzf --zsh)
 
-# --- 9. Zoxide ---
+# --- 10. Zoxide ---
 type zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
-# --- 10. Yazi (cd to last dir on exit) ---
+# --- 11. Yazi (cd to last dir on exit) ---
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	command yazi "$@" --cwd-file="$tmp"
@@ -75,7 +78,7 @@ function y() {
 	command rm -f -- "$tmp"
 }
 
-# --- 11. Lazygit (cd to last dir on exit) ---
+# --- 12. Lazygit (cd to last dir on exit) ---
 function lg() {
   export LAZYGIT_NEW_DIR_FILE="$XDG_STATE_HOME/lazygit/newdir"
   mkdir -p "$(dirname "$LAZYGIT_NEW_DIR_FILE")"
@@ -86,7 +89,7 @@ function lg() {
   fi
 }
 
-# --- 12. Fastfetch on boot (optional) ---
+# --- 13. Fastfetch on boot (optional) ---
 # if [[ -o interactive ]]; then
 #   fastfetch
 # fi
