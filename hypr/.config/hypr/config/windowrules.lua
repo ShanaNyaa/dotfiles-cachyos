@@ -114,7 +114,7 @@ hl.window_rule({
 hl.window_rule({
 	match = {
 		class = "^(.*Obsidian.*)$",
-		title = "^(Settings)(.*)$",
+		title = "^(Settings|Community)(.*)$",
 	},
 	float = true,
 })
