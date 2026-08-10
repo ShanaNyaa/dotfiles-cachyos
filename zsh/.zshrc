@@ -8,6 +8,7 @@ mkdir -p "$(dirname "$HISTFILE")"
 #NOTE: Disable case sensitivity for tab completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 autoload -Uz compinit && compinit
+compdef _podman docker  # `docker` is podman-docker's shim; podman only ships a `_podman` completion
 
 # --- 3. NVM ---
 source /usr/share/nvm/init-nvm.sh
