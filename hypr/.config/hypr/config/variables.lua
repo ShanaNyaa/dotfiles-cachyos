@@ -13,12 +13,17 @@ HAYASE = "hayase"
 HAYASE_CLASS = "hayase"
 EDITOR = "gnome-text-editor --new-window"
 CALCULATOR = "gnome-calculator"
+CODE = "code-oss"
+CODE_CLASS = "code-oss"
+OBSIDIAN = "obsidian"
+OBSIDIAN_CLASS = "md.Obsidian"
 
 -- Monitors
 MONITOR1 = "DP-2"
 MONITOR2 = "HDMI-A-1"
 MONITOR3 = ""
 PRIMARY_MONITOR = MONITOR1
+SECONDARY_MONITOR = MONITOR2
 
 -- Workspaces
 NUM_WPM = 10 -- Number of workspaces per monitor (Max 10)

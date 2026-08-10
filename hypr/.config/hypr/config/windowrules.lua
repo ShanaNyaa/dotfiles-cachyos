@@ -64,7 +64,7 @@ hl.window_rule({
 	fullscreen_state = 0,
 })
 hl.window_rule({ match = { class = "^(.*[Ll]auncher.*)$" }, float = true, monitor = PRIMARY_MONITOR })
-hl.window_rule({ match = { class = "^(vesktop|discord)$" }, monitor = PRIMARY_MONITOR })
+hl.window_rule({ match = { class = "^(vesktop|discord|Spotify)$" }, monitor = SECONDARY_MONITOR })
 hl.window_rule({
 	match = { class = "^(.*[Cc]alc.*)$" },
 	float = true,
@@ -110,6 +110,13 @@ hl.window_rule({
 	match = { class = "^(.*qbittorrent.*)$" },
 	float = true,
 	size = { "max(monitor_w, monitor_h)*0.85", "min(monitor_w, monitor_h)*0.70" },
+})
+hl.window_rule({
+	match = {
+		class = "^(.*Obsidian.*)$",
+		title = "^(Settings)(.*)$",
+	},
+	float = true,
 })
 
 -- Opacity Overrides
