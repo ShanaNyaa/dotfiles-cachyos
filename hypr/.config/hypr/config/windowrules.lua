@@ -118,6 +118,18 @@ hl.window_rule({
 	},
 	float = true,
 })
+hl.window_rule({
+	match = {
+		class = "^(.*Sober*.)$",
+		title = "^(Sober)$",
+		initial_title = "^(Sober)$",
+	},
+	content = "game",
+	decorate = false,
+	fullscreen_state = 2,
+	size = { "monitor_w", "monitor_h" },
+	sync_fullscreen = true,
+})
 
 -- Opacity Overrides
 local terminals = "^(kitty|ghostty|[Kk]onsole|Alacritty|gnome-terminal|xfce[0-9]?-terminal)$"
