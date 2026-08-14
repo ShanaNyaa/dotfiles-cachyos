@@ -109,4 +109,4 @@
   scrollback-limit = 25000000
 
   # Environment Variable
-  term = xterm-256color
+  term = xterm-ghostty
