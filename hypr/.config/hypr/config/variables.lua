@@ -17,6 +17,8 @@ CODE = "code"
 CODE_CLASS = "code"
 OBSIDIAN = "obsidian"
 OBSIDIAN_CLASS = "md.Obsidian"
+SPOTIFY = "spotify"
+SPOTIFY_CLASS = "Spotify"
 
 -- Monitors
 MONITOR1 = "DP-2"
