@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Spotify
+Icon=spotify-client
+Exec=spotify
+Terminal=false
+X-GNOME-Autostart-enabled=true

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Proton VPN
+Icon=proton-vpn-logo
+Exec=protonvpn-app --start-minimized
+Terminal=false
+X-GNOME-Autostart-enabled=true

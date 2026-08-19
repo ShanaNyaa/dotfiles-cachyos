@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=ZapZap
+Icon=com.rtosta.zapzap
+Exec=zapzap --hideStart
+Terminal=false
+X-GNOME-Autostart-enabled=true

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Vesktop
+Icon=vesktop
+Exec=/usr/bin/vesktop
+Terminal=false
+X-GNOME-Autostart-enabled=true

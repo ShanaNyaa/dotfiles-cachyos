@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Steam
+Icon=steam
+Exec=/usr/bin/steam -silent
+Terminal=false
+X-GNOME-Autostart-enabled=true
