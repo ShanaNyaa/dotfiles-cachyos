@@ -21,6 +21,7 @@ hl.bind(mainMod .. " + Up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + Down", hl.dsp.focus({ direction = "down" }))
 hl.bind("ALT + Tab", hl.dsp.window.cycle_next())
 hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd(noctCall .. "window-switcher"))
+hl.bind(mainMod .. " + G", hl.dsp.focus({ workspace = "gaming" }))
 
 -- Move active window around workspaces & monitors
 hl.bind(mainMod .. " + SHIFT + Up", hl.dsp.window.move({ direction = "u" }))
