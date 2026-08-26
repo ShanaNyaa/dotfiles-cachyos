@@ -56,6 +56,20 @@ hl.window_rule({
 	workspace = gamingWorkspace,
 })
 
+-- Video Editing
+local videoEditingWorkspace = "name:video_editing"
+
+hl.window_rule({
+	match = { class = "^(resolve)$", title = "^(resolve|Project Manager)$" },
+	center = true,
+	float = true,
+	workspace = videoEditingWorkspace,
+})
+hl.window_rule({
+	match = { class = "^(resolve)$", title = "^(DaVinci Resolve -.*)$" },
+	workspace = videoEditingWorkspace,
+})
+
 -- Apps
 hl.window_rule({
 	match = { class = "^(.*\\.exe)$", float = true },
@@ -138,6 +152,10 @@ hl.window_rule({ match = { class = "^(firefox|zen)$" }, opacity = "1.0 override"
 hl.window_rule({ match = { class = terminals }, opacity = "1.0 override" }) -- Override opacity in favor of terminal settings for opacity. If your terminal doesn't support transparency, you can remove this rule.
 hl.window_rule({
 	match = { class = "^(mpv|org.kde.haruna|.*plex.*|org\\.kde\\.gwenview|.*vlc.*)$" },
+	opacity = "1.0 override",
+})
+hl.window_rule({
+	match = { class = "^(resolve)$", title = "^(DaVinci Resolve -.*)$" },
 	opacity = "1.0 override",
 })
 
