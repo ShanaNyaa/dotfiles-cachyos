@@ -12,6 +12,7 @@ require("config.misc")
 require("config.monitors")
 require("config.windowrules")
 require("config.workspaces")
+require("config.layerrules")
 
 -- HyprMod managed settings
 require("hyprland-gui")
