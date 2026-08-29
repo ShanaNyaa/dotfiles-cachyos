@@ -93,14 +93,15 @@ hl.bind(mainMod .. " + C", focusOrLaunch(CODE_CLASS, CODE))
 hl.bind(mainMod .. " + O", focusOrLaunch(OBSIDIAN_CLASS, OBSIDIAN))
 hl.bind("XF86Calculator", hl.dsp.exec_cmd(launchPrefix .. CALCULATOR))
 hl.bind(mainMod .. " + B", focusOrLaunch(BROWSER_CLASS, BROWSER))
-hl.bind(mainMod .. " + D", focusOrLaunch(VESKTOP_CLASS, VESKTOP))
+hl.bind(mainMod .. " + D", focusOrLaunch(DISCORD_CLASS, DISCORD))
 hl.bind(mainMod .. " + W", focusOrLaunch(ZAPZAP_CLASS, ZAPZAP))
 hl.bind(mainMod .. " + H", focusOrLaunch(HAYASE_CLASS, HAYASE))
 hl.bind(mainMod .. " + M", focusOrLaunch(SPOTIFY_CLASS, SPOTIFY))
 hl.bind("CONTROL + SHIFT + Escape", hl.dsp.exec_cmd(launchPrefix .. TERMINAL .. " -e btop"))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(noctCall .. "settings-toggle"))
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(noctCall .. "panel-toggle control-center"))
-hl.bind("ALT + Space", hl.dsp.exec_cmd(noctCall .. "panel-toggle launcher"))
+-- hl.bind("ALT + Space", hl.dsp.exec_cmd(noctCall .. "panel-toggle launcher"))
+hl.bind("ALT + Space", hl.dsp.exec_cmd("vicinae toggle"))
 hl.bind(mainMod .. " + period", hl.dsp.exec_cmd(noctCall .. "panel-toggle launcher /emo"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(noctCall .. "session lock"))
 hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd(noctCall .. "panel-toggle session"))
@@ -139,6 +140,7 @@ hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(noctCall .. "panel-toggle wal
 
 -- Clipboard
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(noctCall .. "panel-toggle clipboard"))
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("vicinae vicinae://launch/clipboard/history"))
 
 -- Notifications
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(noctCall .. "panel-toggle control-center notifications"))
