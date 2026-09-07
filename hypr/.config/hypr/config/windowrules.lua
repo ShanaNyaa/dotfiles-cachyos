@@ -70,6 +70,14 @@ hl.window_rule({
 	workspace = videoEditingWorkspace,
 })
 
+-- OBS
+local OBSWorkspace = "name:obs"
+
+hl.window_rule({
+	match = { class = "^com\\.obsproject\\.Studio$" },
+	workspace = OBSWorkspace,
+})
+
 -- Apps
 hl.window_rule({
 	match = { class = "^(.*\\.exe)$", float = true },

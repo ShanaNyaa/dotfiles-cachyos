@@ -134,6 +134,14 @@ hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(noctCall .. "brightness-down"),
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker -a -n"))
 hl.bind("Print", hl.dsp.exec_cmd(noctCall .. "screenshot-region"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(noctCall .. "screenshot-fullscreen"))
+hl.bind(
+	mainMod .. " + F10",
+	hl.dsp.exec_cmd(
+		"obs-cmd replay save && "
+			.. noctCall
+			.. 'notification-show \'{"app_name":"Noctalia","summary":"Replay buffer saved","body":"OBS replay buffer saved to disk","urgency":"low","timeout_ms":4000,"icon":"circle-check"}\''
+	)
+)
 
 -- Theming and Wallpaper
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(noctCall .. "panel-toggle wallpaper"))
