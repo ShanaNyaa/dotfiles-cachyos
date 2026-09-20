@@ -152,11 +152,12 @@ hl.window_rule({
 	},
 	float = true,
 })
+-- Roblox
 hl.window_rule({
 	match = {
-		class = "^(.*Sober*.)$",
-		title = "^(Sober)$",
-		initial_title = "^(Sober)$",
+		class = "^(.*Sober*.|.*mocktail*.)$",
+		title = "^(Sober|Roblox)$",
+		initial_title = "^(Sober|Roblox)$",
 	},
 	content = "game",
 	decorate = false,
