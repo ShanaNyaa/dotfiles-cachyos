@@ -70,6 +70,18 @@ hl.window_rule({
 	workspace = videoEditingWorkspace,
 })
 
+hl.window_rule({
+	match = { class = "^(.*kdenlive)$", title = "^(Kdenlive)$" },
+	center = true,
+	float = true,
+	workspace = videoEditingWorkspace,
+})
+hl.window_rule({
+	match = { class = "^.*kdenlive$", title = "^.* Kdenlive$" },
+	fullscreen_state = 2,
+	workspace = videoEditingWorkspace,
+})
+
 -- OBS
 local OBSWorkspace = "name:obs"
 
