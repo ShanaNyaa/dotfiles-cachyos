@@ -110,7 +110,7 @@ hl.window_rule({
 	size = { "max(monitor_w, monitor_h)*0.40", "min(monitor_w, monitor_h)*0.40" },
 })
 hl.window_rule({
-	match = { class = "^(.*satty.*)$", title = "^(Satty)$" },
+	match = { class = "^(.*swash.*)$", title = "^(Swash)$" },
 	min_size = { "max(monitor_w, monitor_h)*0.35", "min(monitor_w, monitor_h)*0.35" },
 	float = true,
 })
@@ -136,7 +136,7 @@ hl.window_rule({
 	float = true,
 })
 hl.window_rule({
-	match = { class = "^(.*satty)$" },
+	match = { class = "^(.*swash)$" },
 	float = true,
 	size = { "monitor_w*0.70", "monitor_h*0.70" },
 })
