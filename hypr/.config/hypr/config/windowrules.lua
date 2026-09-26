@@ -1,7 +1,7 @@
 -- Window rules wiki https://wiki.hypr.land/Configuring/Basics/Window-Rules/
 
 -- Generic floating position
-hl.window_rule({ match = { float = true }, center = true, persistent_size = true })
+hl.window_rule({ match = { float = true }, persistent_size = true })
 
 -- Picture-in-Picture
 hl.window_rule({

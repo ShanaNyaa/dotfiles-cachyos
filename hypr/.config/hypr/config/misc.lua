@@ -2,6 +2,10 @@ hl.config({
 	dwindle = {
 		preserve_split = true,
 	},
+	ecosystem = {
+		no_update_news = true,
+		no_donation_nag = true,
+	},
 	misc = {
 		col = {
 			splash = CACHYLGREEN,
@@ -12,11 +16,12 @@ hl.config({
 		vrr = 3,
 		focus_on_activate = true,
 	},
+	render = {
+		direct_scanout = 2,
+		-- Use the option below if you find games constantly black screening for a couple seconds whenever direct scanout enables/disables
+		-- non_shader_cm = 0,
+	},
 	xwayland = {
 		force_zero_scaling = true,
-	},
-	ecosystem = {
-		no_update_news = true,
-		no_donation_nag = true,
 	},
 })
