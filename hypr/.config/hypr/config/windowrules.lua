@@ -98,7 +98,8 @@ hl.window_rule({
 	fullscreen_state = 0,
 })
 hl.window_rule({ match = { class = "^(.*[Ll]auncher.*)$" }, float = true, monitor = PRIMARY_MONITOR })
-hl.window_rule({ match = { class = "^(vesktop|discord|Spotify)$" }, monitor = SECONDARY_MONITOR })
+hl.window_rule({ match = { class = "^(vesktop|discord)$" }, monitor = SECONDARY_MONITOR, workspace = 4 })
+hl.window_rule({ match = { class = "^(Spotify)$" }, monitor = SECONDARY_MONITOR, workspace = 5 })
 hl.window_rule({
 	match = { class = "^(.*[Cc]alc.*)$" },
 	float = true,
