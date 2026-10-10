@@ -2,6 +2,8 @@
 
 TERMINAL = "ghostty"
 TERMINAL_CLASS = "com.mitchellh.ghostty"
+KITTY = "kitty"
+KITTY_CLASS = "kitty"
 FILE_MANAGER = "dolphin"
 BROWSER = "zen-browser"
 BROWSER_CLASS = "zen" -- window class, check with: hyprctl clients | grep class
