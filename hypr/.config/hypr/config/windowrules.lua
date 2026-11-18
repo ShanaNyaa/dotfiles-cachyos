@@ -180,12 +180,20 @@ hl.window_rule({
 	match = { class = "^(resolve)$", title = "^(DaVinci Resolve -.*)$" },
 	opacity = "1.0 override",
 })
+hl.window_rule({
+	match = {
+		class = "^(.*Bazaar)$",
+		initial_title = "^(Bazaar)$",
+	},
+	opacity = "1.0 override",
+})
 
 -- Float Utility Windows
 local floatApps = {
 	{ class = "^(kvantummanager|qt[56]ct|nwg-look)$" },
 	{ class = "^(org.pulseaudio.pavucontrol|blueman-manager|nm-applet|nm-connection-editor)$" },
 	{ title = "^(Winetricks.*|Protontricks.*)$" },
+	{ title = "^(Bazaar.*)$" },
 }
 for _, m in ipairs(floatApps) do
 	hl.window_rule({ match = m, float = true })
